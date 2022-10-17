@@ -19,6 +19,14 @@ public class OverloadedConstructors {
     public void print(){
         System.out.println("My value is: " + val);
     }
+
+    public boolean equals(Object o){
+        return (o instanceof OverloadedConstructors) && ((OverloadedConstructors)o).val == val;
+    }
+
+    protected void finalize() throws Throwable{
+        System.out.println("Destroying...");
+    }
 }
 
 class OverloadedConstructorsMain{
@@ -34,5 +42,13 @@ class OverloadedConstructorsMain{
 
         v1.print();
         v2.print();
+
+        System.out.println(v1.equals(v2));
+
+        System.gc();
+
+        for (int i = 1; i < 10000; i++){
+            v1 = new OverloadedConstructors(25);
+        }
     }
 }
