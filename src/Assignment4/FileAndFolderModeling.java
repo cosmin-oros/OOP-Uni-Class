@@ -21,6 +21,8 @@ package Assignment4;
     instances of each class.
  */
 
+import java.util.Arrays;
+
 class File{
     private String information;
     private String name;
@@ -36,16 +38,44 @@ class File{
 }
 
 class Folder{
-    File[] entries = new File[1000];
+    private File[] entries = new File[1000];
     private static int entryNr = 0;
 
     public void addFile(File file){
+        // check if the file was already stored
+        if (Arrays.binarySearch(entries, file) < 0){
+            entries[entryNr] = file;
+            entryNr++;
+        }else{
+            System.out.println("File already stored!");
+        }
+    }
 
+    public String getContent(){
+        String s = "";
+
+        for (int i = 0; i < entries.length; i++){
+            s = s + entries[i].getContent();
+        }
+
+        return s;
     }
 }
 
 class FileAndFolderModeling {
     public static void main(String[] args){
+        File f1 = new File("info1", "name1");
+        File f2 = new File("info2", "name2");
+        File f3 = new File("info3", "name3");
+        Folder folder = new Folder();
 
+        folder.addFile(f1);
+        folder.addFile(f2);
+        folder.addFile(f3);
+
+        System.out.println(f1.getContent());
+        System.out.println(f2.getContent());
+        System.out.println(f3.getContent());
+        System.out.println(folder.getContent());
     }
 }
