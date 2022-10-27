@@ -19,11 +19,59 @@ package Assignment4;
  */
 
 class Text {
+    private String[] words = new String[20];
+    private Integer[] apps = new Integer[20];
+    private static int instance = 0;
 
+    public boolean addWord(String word){
+        // check if there were 20 words stored already
+        if (instance == 20){
+            return false;
+        }
+
+        int foundPos = -1;
+        // check if the word was already stored
+        for (int i = 0; i < words.length; i++){
+            try {
+                if (words[i].equals(word)) {
+                    foundPos = i;
+                    break;
+                }
+            }catch (NullPointerException e){
+
+            }
+        }
+
+        if (foundPos == -1){
+            words[instance] = word;
+            apps[instance] = 1;
+        }else{
+            apps[foundPos]++;
+        }
+
+        instance++;
+        return true;
+    }
+
+    public void printText(){
+        for (int i = 0; i < words.length; i++){
+            try {
+                System.out.println(words[i] + apps[i].toString());
+            }catch (NullPointerException e){
+
+            }
+        }
+    }
 }
 
 class TextClient {
     public static void main(String[] args){
+        Text text = new Text();
+        text.addWord("Liviu");
+        text.addWord("Mocan");
+        text.addWord("Mocan");
+        text.addWord("Jad");
 
+        text.printText();
     }
 }

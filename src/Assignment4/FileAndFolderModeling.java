@@ -42,8 +42,15 @@ class File{
 }
 
 class Folder{
-    private File[] entries = new File[1000];
+    private File[] entries;
     private static int entryNr = 0;
+
+    public Folder(){
+        entries = new File[1000];
+    }
+    public Folder(int n){
+        entries = new File[n];
+    }
 
     public void addFile(File file){
         // check if the file was already stored
