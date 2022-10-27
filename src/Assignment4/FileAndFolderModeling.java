@@ -32,6 +32,10 @@ class File{
         this.name = name;
     }
 
+    public boolean equals(Object o){
+        return (o instanceof File) && ((File)o).information == information;
+    }
+
     public String getContent(){
         return this.information;
     }
@@ -43,7 +47,20 @@ class Folder{
 
     public void addFile(File file){
         // check if the file was already stored
-        if (Arrays.binarySearch(entries, file) < 0){
+        boolean stored = false;
+
+        for (int i = 0; i < entries.length; i++){
+            try {
+                if (entries[i].equals(file)) {
+                    stored = true;
+                    break;
+                }
+            }catch (NullPointerException e){
+
+            }
+        }
+
+        if (!stored){
             entries[entryNr] = file;
             entryNr++;
         }else{
@@ -54,8 +71,12 @@ class Folder{
     public String getContent(){
         String s = "";
 
-        for (int i = 0; i < entries.length; i++){
-            s = s + entries[i].getContent();
+        try {
+            for (int i = 0; i < entries.length; i++) {
+                s = s + entries[i].getContent();
+            }
+        }catch (NullPointerException e){
+
         }
 
         return s;
