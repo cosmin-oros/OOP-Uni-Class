@@ -65,12 +65,12 @@ class ConditionName implements Strategy {
 
     @Override
     public boolean isInCompany(Strategy strategy) {
-
+        return true;
     }
 
     @Override
     public boolean isCondition(Employee e) {
-
+        return true;
     }
 }
 
@@ -79,12 +79,12 @@ class ConditionMoney implements Strategy {
 
     @Override
     public boolean isInCompany(Strategy strategy) {
-
+        return true;
     }
 
     @Override
     public boolean isCondition(Employee e) {
-
+        return true;
     }
 }
 
@@ -99,7 +99,7 @@ class Company implements Strategy{
         if (!employees.contains(e)) {
             employees.add(e);
         } else {
-            System.out.println("Employee already stored")
+            System.out.println("Employee already stored");
         }
     }
 
@@ -112,12 +112,13 @@ class Company implements Strategy{
     @Override
     public boolean isInCompany(Strategy strategy) {
         for (int i = 0; i < employees.size(); i++) {
-            if (employees.get(i).isCondition) {
+            /*if (employees.get(i).isCondition) {
                 return true;
             } else {
                 return false;
-            }
+            }*/
         }
+        return true;
     }
 
     @Override
