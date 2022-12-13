@@ -1,3 +1,4 @@
+/*
 package Course;
 
 abstract class Bird {
@@ -20,21 +21,21 @@ abstract class Bird {
 	}
 	
 	// Fly to reach a certain height in meters
-	abstract public Bird fly(int height);
+	abstract public Bird2 fly(int height);
 		
 	public String toString() {
 		return says()+" My name is "+name+" and I am " + age + " years old." +" I have a " + color +" color.";
 	}
 	
 	public boolean equals(Object o) {
-			if (!(o instanceof Bird))
+			if (!(o instanceof Bird2))
 				return false;
-			Bird birdToCompare = (Bird)o;
+			Bird2 birdToCompare = (Bird2)o;
 			return birdToCompare.name.equals(this.name);
 	}
 }
 
-class Duck extends Bird {
+class Duck extends Bird2 {
 	// Ducks have fairly short legs, and then they cannot gain too much speed, so 0.003 km/second is a reasonable value
 	private static final double AVG_SWIM_SPEED = 0.003; 
 	
@@ -79,7 +80,7 @@ class Duck extends Bird {
 	}
 	
 	// Provide height in meters
-	public Bird fly(int height) {
+	public Bird2 fly(int height) {
 		//this.kmTravelled += computeKmTravelledToReachHeight(height);
 		double updatedKmTravelled = kmTravelled + computeKmTravelledToReachHeight(height);
 		return new Duck(name, color, updatedKmTravelled, age);
@@ -93,11 +94,11 @@ class Duck extends Bird {
 
 class PolymorphicBirds {
   public static void main(String[] args) {
-	  Bird donald = new Duck("Donald","white", 100);
+	  Bird2 donald = new Duck("Donald","white", 100);
 	  
-	  Bird d1 = donald.fly(5);
+	  Bird2 d1 = donald.fly(5);
 	  System.out.println(d1);
 	  
 	  
 	  }
-}
+}*/

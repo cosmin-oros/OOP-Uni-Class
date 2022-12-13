@@ -1,3 +1,4 @@
+/*
 package Course;
 
 interface BirdInterface {
@@ -37,14 +38,14 @@ abstract class Bird implements BirdInterface {
 	}
 	
 	public boolean equals(Object o) {
-			if (!(o instanceof Bird))
+			if (!(o instanceof Bird2))
 				return false;
-			Bird birdToCompare = (Bird)o;
+			Bird2 birdToCompare = (Bird2)o;
 			return birdToCompare.name.equals(this.name);
 	}
 }
 
-class Duck extends Bird implements BirdThatFliesInterface, BirdThatSwimsInterface {
+class Duck extends Bird2 implements BirdThatFliesInterface, BirdThatSwimsInterface {
 	// Ducks have fairly short legs, and then they cannot gain too much speed, so 0.003 km/second is a reasonable value
 	private static final double AVG_SWIM_SPEED = 0.003; 
 	
@@ -121,4 +122,4 @@ class InterfaceBirds {
 	  System.out.println(new_bird2);
 	  new_bird2.walk(30);
 	  }
-}
+}*/

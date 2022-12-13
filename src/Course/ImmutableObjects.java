@@ -1,3 +1,4 @@
+/*
 package Course;
 
 class Duck {
@@ -83,4 +84,4 @@ class ImmutableObjects {
 	  System.out.println("Original: " + babyDuck3);	 
 	  System.out.println("Modified: " + babyDuck4);	
 	}
-}
+}*/

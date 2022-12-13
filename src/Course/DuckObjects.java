@@ -1,3 +1,4 @@
+/*
 package Course;
 
 class Duck {
@@ -48,4 +49,4 @@ class DuckObjects {
 	  duffy.swim(30);
 	  duffy.print();
 	}
-}
+}*/

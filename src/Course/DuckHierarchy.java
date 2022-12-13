@@ -1,3 +1,4 @@
+/*
 package Course;
 
 class Animal {
@@ -40,16 +41,16 @@ class Animal {
 	}
 }
 
-class Bird extends Animal {
+class Bird2 extends Animal {
 	
 	protected String color;
 	
-	public Bird(String name, String color, int age) {
+	public Bird2(String name, String color, int age) {
 		super(name, age);	
 		this.color = color;		
 	}
 	
-	public Bird(String name, String color) {
+	public Bird2(String name, String color) {
 		this(name, color, 0);
 	}
 	
@@ -58,7 +59,7 @@ class Bird extends Animal {
 	}
 	
 	// Fly to reach a certain height in meters
-	public Bird fly(int height) {
+	public Bird2 fly(int height) {
 		System.out.println("Flying... to reach " + height + " m.");
 		return this;
 	}
@@ -69,7 +70,7 @@ class Bird extends Animal {
 	
 }
 
-class Duck extends Bird {
+class Duck extends Bird2 {
 	// Ducks have fairly short legs, and then they cannot gain too much speed, so 0.003 km/second is a reasonable value
 	private static final double AVG_SWIM_SPEED = 0.003; 
 	
@@ -175,7 +176,7 @@ class DuckHierarchy {
 			((Duck)animals[i]).walk(8);
 	  }
 	  
-	  Bird tweety = new Bird("Tweety", "yellow");
+	  Bird2 tweety = new Bird2("Tweety", "yellow");
 	  System.out.println(tweety);
 	  tweety.fly(3);
 	  tweety.increaseAgeByYears(15);
@@ -184,4 +185,4 @@ class DuckHierarchy {
 	  Duck airborneDonald = donald.fly(5);
 	  System.out.println(airborneDonald);
 	}
-}
+}*/
