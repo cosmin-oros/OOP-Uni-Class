@@ -28,8 +28,8 @@ public class Client2 {
         for (Constructor cons: c.getConstructors()) {
             if (cons.getParameterTypes().length != 0) {
                 try {
-                    newStudent = cons.newInstance(new Integer(22));
-                    ageField.set(newStudent, new Integer(20));
+                    newStudent = cons.newInstance(22);
+                    ageField.set(newStudent, 20);
                 } catch (InstantiationException e1) {
                     e1.printStackTrace();
                 } catch (IllegalAccessException e2) {
