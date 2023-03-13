@@ -39,14 +39,15 @@ public class SortingTestbench {
 
             log.write("Run " + i + ":", time);
         }
-        log.write("Finished in ", timer.stop());
+        double stopTime = timer.stop();
+        log.write("Finished in ", nanoConverter.nanoToSeconds(stopTime));
 
-        bench.initialize(10000);
+        /*bench.initialize(10000);
         timer.start();
         bench.run();
         long time = timer.stop();
 
-        log.write("Finished in ", time, " ns");
+        log.write("Finished in ", time, " ns");*/
         log.close();
         bench.clean();
     }
