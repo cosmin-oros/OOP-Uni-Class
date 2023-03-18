@@ -16,21 +16,25 @@ public class PIBenchmark {
         ITimer timer = new Timer();
         ILogger log = new ConsoleLogger();
         IBenchmark bench = new DigitsOfPi();
+        DigitsOfPi pi = new DigitsOfPi();
+        pi.warmup();
 
         final int workload = 50000;
         String timeUnit = "ms";
 
-        for (int i = 0; i < 20; i++){
+        for(int i=0; i<=10;i++) {
             bench.initialize(workload);
             timer.resume();
             bench.run();
+
+            pi.initialize(1000);
+            pi.run();
+
             long time = timer.pause();
             log.write("Run " + i + ": ", time, timeUnit);
-            //log.write("\n");
-            //log.write("\nRun " + i + ": ", time);
         }
 
-        log.write(timer.stop(), timeUnit);
+        pi.printPi();
 
     }
 }
