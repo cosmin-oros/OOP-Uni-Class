@@ -22,7 +22,7 @@ public class PIBenchmark {
         final int workload = 50000;
         String timeUnit = "ms";
 
-        for(int i=0; i<=10;i++) {
+        for(int i = 0; i <= 10; i++) {
             bench.initialize(workload);
             timer.resume();
             bench.run();

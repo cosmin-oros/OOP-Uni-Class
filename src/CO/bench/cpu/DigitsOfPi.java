@@ -44,6 +44,11 @@ public class DigitsOfPi implements IBenchmark {
     }
 
     @Override
+    public void warmUp() {
+
+    }
+
+    @Override
     public void run() {
 
 
@@ -69,6 +74,11 @@ public class DigitsOfPi implements IBenchmark {
     @Override
     public void clean() {
 
+    }
+
+    @Override
+    public String getResult() {
+        return null;
     }
 
     @Override

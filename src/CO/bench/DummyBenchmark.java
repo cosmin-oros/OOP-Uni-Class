@@ -20,8 +20,18 @@ public class DummyBenchmark implements IBenchmark {
     }
 
     @Override
+    public void warmUp() {
+
+    }
+
+    @Override
     public void clean() {
 
+    }
+
+    @Override
+    public String getResult() {
+        return null;
     }
 
     @Override

@@ -1,33 +1,46 @@
 package CO.timing;
 
-public class Timer implements ITimer{
+public class Timer implements ITimer {
 
-    private long start = 0;
-    private long end = 0;
-    private long elapsedTime = 0;
-    private long totalTime = 0;
+    private long elapsed = 0;
+    private long stored = 0;
+    private TimerState state;
+
+    public Timer() {
+        state = TimerState.Stopped;
+    }
 
     @Override
     public void start() {
-        start = System.nanoTime();
-        totalTime = 0;
+        stored = 0;
+        resume();
     }
 
     @Override
     public long stop() {
-        totalTime += System.nanoTime() - elapsedTime;
-        return totalTime;
-    }
+        if (state.equals(TimerState.Running)) {
+            elapsed = System.nanoTime() - elapsed;
+            state = TimerState.Stopped;
+            stored += elapsed;
 
-    @Override
-    public void resume() {
-        elapsedTime = System.nanoTime() - start;
+            return stored;
+        } else
+            return stored;
     }
 
     @Override
     public long pause() {
-        elapsedTime = System.nanoTime() - start;
-        totalTime += elapsedTime;
-        return elapsedTime;
+        elapsed = System.nanoTime() - elapsed;
+        state = TimerState.Paused;
+        stored += elapsed;
+
+        return stored;
+    }
+
+    @Override
+    public void resume() {
+        state = TimerState.Running;
+        elapsed = System.nanoTime();
     }
 }
+

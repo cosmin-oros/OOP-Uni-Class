@@ -1,53 +1,62 @@
 package CO.logging;
 
-import java.awt.*;
-import java.io.File;
-import java.io.FileOutputStream;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Arrays;
+import java.io.PrintWriter;
 
 public class FileLogger implements ILogger {
 
-    String arr = "5 2 7 9 2 4 0 10 5";
+    private PrintWriter pw;
 
-    File file;
-    OutputStream os = null;
+    public FileLogger(String fullPath) {
 
-    public FileLogger() throws IOException {
-        file = new File("myfile.txt");
-        Desktop desktop = Desktop.getDesktop();
+        try {
+            BufferedWriter logFile = new BufferedWriter(new FileWriter(
+                    fullPath, false));
+            pw = new PrintWriter(logFile);
 
-        if(file.exists()) desktop.open(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.exit(-1);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.exit(-1);
+        }
     }
 
     @Override
-    public void write(long a) {
-
+    public void write(String string) {
+        pw.println(string);
     }
 
     @Override
-    public void write(String a) {
-
+    public void write(long value) {
+        pw.println(String.valueOf(value));
     }
 
     @Override
     public void write(Object... values) {
-        try {
-            os = new FileOutputStream(file);
-            os.write(arr.getBytes(), 0, arr.length());
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
+        String s = "";
+        for (Object o : values)
+            s += o.toString() + " ";
+        pw.println(s);
+    }
 
+    @Override
+    public void writeTime(long value, TimeUnit unit) {
+        pw.println(String.valueOf(TimeUnit.toTimeUnit(value, unit)));
+    }
+
+    @Override
+    public void writeTime(String string, long value, TimeUnit unit) {
+        pw.println(string + " " + TimeUnit.toTimeUnit(value, unit));
     }
 
     @Override
     public void close() {
-        try {
-            os.close();
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
+        if (pw != null)
+            pw.close();
     }
 }
