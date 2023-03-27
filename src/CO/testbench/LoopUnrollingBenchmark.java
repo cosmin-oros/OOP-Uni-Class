@@ -14,7 +14,7 @@ public class LoopUnrollingBenchmark {
     public static void main(String[] args) {
         ITimer timer = new Timer();
         ILogger log = /* new FileLogger("bench.log"); */new ConsoleLogger();
-        TimeUnit timeUnit = TimeUnit.Milli;//
+        TimeUnit timeUnit = TimeUnit.Milli;
 
         IBenchmark bench = new LoopUnrolling();
         bench.initialize(10000000);
