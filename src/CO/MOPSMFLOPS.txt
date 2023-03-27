@@ -1,0 +1,15 @@
+CPUs:
+
+Intel 4004 (1971): The Intel 4004 CPU had a peak performance of 92.6 KOPS (Kilo Operations per Second).
+
+Intel Pentium III (1999): The Intel Pentium III CPU had a peak performance of 1.13 GFLOPS and 282.5 MOPS.
+
+AMD Ryzen 9 5950X (2020): The AMD Ryzen 9 5950X CPU has a peak performance of 749 GFLOPS and 187.25 GMOPS.
+
+Supercomputers:
+
+Fujitsu VPP500 (1992): The Fujitsu VPP500 supercomputer had a peak performance of 1.3 GFLOPS and 325.2 MOPS.
+
+Tianhe-2 (2013): The Tianhe-2 supercomputer had a peak performance of 33.86 PFLOPS and 84.65 PFLOPS.
+
+Fugaku (2020): The Fugaku supercomputer has a peak performance of 1 exaFLOPS and 2.8 exaOPS.
